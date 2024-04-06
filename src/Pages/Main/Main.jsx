@@ -5,9 +5,11 @@ import { Outlet } from 'react-router-dom';
 
 const Main = () => {
     return (
-        <div>
+        <div className='max-w-7xl mx-auto'>
             <Navber></Navber>
-            <Outlet />
+            <div className={`min-h-[calc(90vh-300px)]`}>
+                <Outlet />
+            </div>
             <Footer></Footer>
         </div>
     );
