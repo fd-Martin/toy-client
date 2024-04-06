@@ -2,8 +2,8 @@ import React from 'react';
 
 const Blog = ({ children }) => {
     return (
-        <div className="h-96 flex items-center justify-center">
-            <div className="container mx-auto py-8">
+        <div className=" flex items-center justify-center">
+            <div className="container mx-auto py-8 px-6">
                 <h1 className="text-5xl font-bold text-center mb-6"> {children}</h1>
                 <div className="accordion ml-6">
 
