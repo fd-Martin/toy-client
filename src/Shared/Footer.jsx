@@ -32,24 +32,22 @@ const Footer = () => {
                 </nav>
             </footer>
             <footer className="footer px-10 py-4 border-t bg-base-200 text-base-content border-base-300">
-                <Link to="/"side className="items-center grid-flow-col">
-                    <Link to='/'>
+                <Link to="/" className="items-center grid-flow-col">
                     <img src={logo} alt="" className='h-1/2 md:h-3/5' />
-                    </Link>
                     <p>ACME Industries Ltd. <br />Providing reliable tech since 1992</p>
                 </Link>
 
                 <nav className="md:place-self-center md:justify-self-end">
                     <div className="grid grid-flow-col gap-4">
                         <Link to="/"><FaFacebookSquare className="facebook-icon-container text-white " /></Link>
-                        <Link to="/"><FaSquareXTwitter className="twitter-icon-container text-white "/></Link>
-                        <Link to="/"><FaYoutube className="youtube-icon-container text-white "/></Link>
-                        
+                        <Link to="/"><FaSquareXTwitter className="twitter-icon-container text-white " /></Link>
+                        <Link to="/"><FaYoutube className="youtube-icon-container text-white " /></Link>
+
                     </div>
                 </nav>
             </footer>
             <footer className="footer footer-center p-4 bg-base-300 text-base-content">
-                <Link to="/"side>
+                <Link to="/">
                     <p>Copyright © 2024 - All right reserved by ACME Industries Ltd</p>
                 </Link>
             </footer>
