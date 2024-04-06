@@ -1,0 +1,11 @@
+.facebook-icon-container,
+.twitter-icon-container,
+.youtube-icon-container {
+    transition: transform 0.5s ease;
+}
+
+.facebook-icon-container:hover,
+.twitter-icon-container:hover,
+.youtube-icon-container:hover {
+    transform: scale(1.5);
+}
