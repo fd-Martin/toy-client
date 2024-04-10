@@ -32,11 +32,21 @@ const Navbar = () => {
                             </li>
                             <li><Link to='/'>Home</Link></li>
                             <li><Link to='/blog'>Blog</Link></li>
+                            <li><Link to='/blog'>All Toys</Link></li>
+                            {
+                                user ?  
+                                <>
+                                <li><Link to='/blog'>My Toys</Link></li>
+                                <li><Link to='/blog'>Add A Toy</Link></li>
+                                </>: ''
+
+                         }
                             {
                                 user ? <button className="btn btn-warning text-xl w-full " onClick={handleLogOut}>LogOut</button> :
                                     <div>
                                         <Link to='/login'>
-                                            <button className="btn btn-primary text-xl  w-full">Login</button></Link>
+                                            <button className="btn btn-primary text-xl  w-full">Login</button>
+                                        </Link>
                                     </div>
                             }
                         </ul>
@@ -56,6 +66,16 @@ const Navbar = () => {
                                         ? "pending"
                                         : ""}>Blog</NavLink>
                             </li>
+                            <li><Link to='/blog'>All Toys</Link></li>
+                            {
+                                user ?  
+                                <>
+                                <li><Link to='/blog'>My Toys</Link></li>
+                                <li><Link to='/blog'>Add A Toy</Link></li>
+                                </>: ''
+
+                         }
+                            
                         </ul>
                     </div>
                 </div>
@@ -76,7 +96,11 @@ const Navbar = () => {
                             user ? <button className="btn btn-warning text-xl ms-5" onClick={handleLogOut}>LogOut</button> :
                                 <div>
                                     <Link to='/login'>
-                                        <button className="btn btn-primary text-xl">Login</button></Link>
+                                        <button className="btn btn-primary text-xl">Login</button>
+                                    </Link>
+                                    <Link to='/signup'>
+                                        <button className="btn btn-primary text-xl">Sign Up</button>
+                                    </Link>
                                 </div>
                         }
                     </div>
