@@ -6,6 +6,10 @@ import Error from "../Error/Error";
 import Home from "../Pages/Home/Home/Home";
 import Login from "../Pages/Login/Login";
 import Register from "../Pages/Register/Register";
+import AddAToy from "../Pages/AddAToy/AddAToy";
+import PrivateAuthProvider from "../Pages/PrivateAuthProvider/PrivateAuthProvider";
+import AllToys from "../Pages/AllToys/AllToys";
+import MyToys from "../Pages/MyToys/MyToys";
 
 
 
@@ -30,7 +34,19 @@ const router = createBrowserRouter([
       {
         path: "/signup",
         element: <Register></Register>
-      }
+      },
+      {
+        path: "/alltoys",
+        element: <AllToys></AllToys> 
+      },
+      {
+        path: "/myToys",
+        element: <MyToys></MyToys>
+      },
+      {
+        path: "/addAtoy",
+        element: <PrivateAuthProvider><AddAToy></AddAToy></PrivateAuthProvider>  
+      },
     ],
   },
 ]);

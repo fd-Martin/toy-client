@@ -32,12 +32,12 @@ const Navbar = () => {
                             </li>
                             <li><Link to='/'>Home</Link></li>
                             <li><Link to='/blog'>Blog</Link></li>
-                            <li><Link to='/blog'>All Toys</Link></li>
+                            <li><Link to='/allToys'>All Toys</Link></li>
                             {
                                 user ?  
                                 <>
-                                <li><Link to='/blog'>My Toys</Link></li>
-                                <li><Link to='/blog'>Add A Toy</Link></li>
+                                <li><Link to='/myToys'>My Toys</Link></li>
+                                <li><Link to='/addAtoy'>Add A Toy</Link></li>
                                 </>: ''
 
                          }
@@ -66,12 +66,12 @@ const Navbar = () => {
                                         ? "pending"
                                         : ""}>Blog</NavLink>
                             </li>
-                            <li><Link to='/blog'>All Toys</Link></li>
+                            <li><Link to='/allToys'>All Toys</Link></li>
                             {
                                 user ?  
                                 <>
-                                <li><Link to='/blog'>My Toys</Link></li>
-                                <li><Link to='/blog'>Add A Toy</Link></li>
+                                <li><Link to='/myToys'>My Toys</Link></li>
+                                <li><Link to='/addAtoy'>Add A Toy</Link></li>
                                 </>: ''
 
                          }
