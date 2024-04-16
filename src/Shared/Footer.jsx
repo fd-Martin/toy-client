@@ -8,7 +8,7 @@ import './Footer.css';
 
 const Footer = () => {
     return (
-        <div>
+        <>
             <footer className="footer p-10 bg-base-200 text-base-content">
                 <nav>
                     <h6 className="footer-title">Services</h6>
@@ -51,7 +51,7 @@ const Footer = () => {
                     <p>Copyright © 2024 - All right reserved by ACME Industries Ltd</p>
                 </Link>
             </footer>
-        </div>
+        </>
     );
 };
 
