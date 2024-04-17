@@ -1,9 +1,13 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useForm } from 'react-hook-form';
 import Swal from 'sweetalert2'
+import { AuthContext } from '../AuthProvider/AuthProvider';
 
 const AddAToy = () => {
     const { register, handleSubmit, formState: { errors }, reset } = useForm();
+    const { user } = useContext(AuthContext);
+    console.log(user?.displayName);
+
     const onSubmit = data => {
         fetch("http://localhost:3000/allToys", {
             method: "POST",
@@ -18,16 +22,13 @@ const AddAToy = () => {
                         title: "Toy Successfully Added",
                         text: "Add More Toys",
                         icon: "success"
-                    }).then(() => {
-                        reset()
-                    });
+                    })
                 }
             });
         console.log(data);
 
 
     };
-    console.log(errors);
 
     return (
         <div className='bg-base-200'>
@@ -43,65 +44,68 @@ const AddAToy = () => {
                                     <label className="label">
                                         <span className="label-text font-semibold"> Photo Url</span>
                                     </label>
-                                    <input type="url" placeholder="Photo Url" className="input input-bordered" {...register("Photo URL", {})} required />
+                                    <input type="url" placeholder="Photo Url" className="input input-bordered" {...register("photo_url", {})} required />
                                 </div>
                                 <div className="form-control">
                                     <label className="label">
                                         <span className="label-text font-semibold"> Toy Name</span>
                                     </label>
-                                    <input type="text" placeholder="Toy Name" className="input input-bordered" {...register("Toy Name", {})} required />
+                                    <input type="text" placeholder="Toy Name" className="input input-bordered" {...register("toy_name", {})} required />
                                 </div>
                                 <div className="form-control">
                                     <label className="label">
                                         <span className="label-text font-semibold"> Sub-Category</span>
                                     </label>
-                                    <select {...register("Sub-Catagory")} className="input input-bordered">
+                                    <select {...register("subcategory")} className="input input-bordered">
                                         <option value="a">a</option>
                                         <option value="b">b</option>
                                         <option value="c">c</option>
                                     </select>
                                 </div>
+
                                 <div className="form-control">
                                     <label className="label">
                                         <span className="label-text font-semibold"> Seller Name</span>
                                     </label>
-                                    <input type="text" placeholder="Seller Name" className="input input-bordered"  {...register("Seller Name", {})} required />
+                                    <input type="text" placeholder="Seller Name" className="input input-bordered"  {...register("seller_name", { value: user.displayName })} required />
                                 </div>
                                 <div className="form-control">
                                     <label className="label">
                                         <span className="label-text font-semibold"> Seller Email</span>
                                     </label>
 
-                                    <input type="email" placeholder="Seller Email" className="input input-bordered" {...register("Seller Email", {})} required />
+                                    <input type="email" placeholder="Seller Email" className="input input-bordered" {...register("seller_email", { value: user.email })} required />
                                 </div>
+
                                 <div className="form-control">
                                     <label className="label">
                                         <span className="label-text font-semibold"> Price</span>
                                     </label>
-                                    <input type="number" step="0.01" placeholder="Price" className="input input-bordered" {...register("Price", {})} required />
+                                    <input type="number" step="0.01" placeholder="Price" className="input input-bordered" {...register("price", {})} required />
                                 </div>
                                 <div className="form-control">
                                     <label className="label">
                                         <span className="label-text font-semibold"> Rating</span>
                                     </label>
-                                    <input type="number" step="0.01" min="0.00" max="5.00" placeholder="Rating" className="input input-bordered" {...register("Rating", {})} required />
+                                    <input type="number" step="0.01" min="0.00" max="5.00" placeholder="Rating" className="input input-bordered" {...register("rating", {})} required />
                                 </div>
                                 <div className="form-control">
                                     <label className="label">
                                         <span className="label-text font-semibold">Available Quantity</span>
                                     </label>
-                                    <input type="number" placeholder="Available Quantity" className="input input-bordered" {...register("Available Quantity", {})} required />
+                                    <input type="number" placeholder="Available Quantity" className="input input-bordered" {...register("quantity", {})} required />
                                 </div>
                             </div>
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text font-semibold">Detail Description</span>
                                 </label>
-                                <textarea type="text" placeholder="Detail Description" className="input input-bordered p-2" {...register("Detail Description", {})} required />
+                                <textarea type="text" placeholder="Detail Description" className="input input-bordered p-2" {...register("description", {})} required />
                             </div>
                             <div className="form-control mt-6 ">
                                 <input type="submit" className="btn btn-primary  btn-block" value="Add A Toy" />
                             </div>
+
                         </form>
                     </div>
                 </div>

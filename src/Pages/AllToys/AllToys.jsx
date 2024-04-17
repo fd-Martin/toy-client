@@ -4,6 +4,7 @@ import ToysTable from '../ToysTable/ToysTable';
 
 const AllToys = () => {
     const allToys = useLoaderData();
+    console.log(allToys);
     return (
         <div>
             <div className='h-52 place-content-center'>
