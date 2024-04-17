@@ -15,14 +15,15 @@ const AllToys = () => {
                     <thead>
                         <tr>
                             <th></th>
-                            <th> Toy Name</th>
-                            <th>Sub-Catagory</th>
-                            <th>Price</th>
-                            <th>Available Quantity</th>
-                            <th>Favorite Color</th>
-                            <th></th>
+                            <td> Toy Name</td>
+                            <td>Sub-Catagory</td>
+                            <td>Price</td>
+                            <td>Seller Name</td>
+                            <td>Available Quantity</td>
+                            <td> View Details</td>
                         </tr>
                     </thead>
+                   
                     {
                         <tbody>
                             {

@@ -10,6 +10,7 @@ import AddAToy from "../Pages/AddAToy/AddAToy";
 import PrivateAuthProvider from "../Pages/PrivateAuthProvider/PrivateAuthProvider";
 import AllToys from "../Pages/AllToys/AllToys";
 import MyToys from "../Pages/MyToys/MyToys";
+import SingleToy from "../Pages/SingleToy/SingleToy";
 
 
 
@@ -39,6 +40,11 @@ const router = createBrowserRouter([
         path: "/alltoys",
         element: <AllToys></AllToys>,
         loader: () => fetch(`http://localhost:3000/allToys`)
+      },
+      {
+        path: "/alltoys/:_id",
+        element: <SingleToy></SingleToy>,
+        loader: ({ params }) => fetch(`http://localhost:3000/allToys/${params._id}`)
       },
       {
         path: "/myToys",
