@@ -1,10 +1,32 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
-
+import Swal from 'sweetalert2'
 
 const AddAToy = () => {
-    const { register, handleSubmit, formState: { errors } } = useForm();
-    const onSubmit = data => console.log(data);
+    const { register, handleSubmit, formState: { errors }, reset } = useForm();
+    const onSubmit = data => {
+        fetch("http://localhost:3000/allToys", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(data),
+        })
+            .then((res) => res.json())
+            .then((result) => {
+                console.log(result);
+                if (result?.insertedId) {
+                    Swal.fire({
+                        title: "Toy Successfully Added",
+                        text: "Add More Toys",
+                        icon: "success"
+                    }).then(() => {
+                        reset()
+                    });
+                }
+            });
+        console.log(data);
+
+
+    };
     console.log(errors);
 
     return (
@@ -21,7 +43,7 @@ const AddAToy = () => {
                                     <label className="label">
                                         <span className="label-text font-semibold"> Photo Url</span>
                                     </label>
-                                    <input type="url" placeholder="Photo Url" className="input input-bordered" {...register} />
+                                    <input type="url" placeholder="Photo Url" className="input input-bordered" {...register("Photo URL", {})} required />
                                 </div>
                                 <div className="form-control">
                                     <label className="label">
