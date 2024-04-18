@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const ToysTable = ({ toyTable, index }) => {
-    const { toy_name, seller_name, price, quantity, subcategory ,_id} = toyTable;
+    const { toy_name, seller_name, price, quantity, subcategory, _id } = toyTable;
     return (
         <>
             <tr className="hover">

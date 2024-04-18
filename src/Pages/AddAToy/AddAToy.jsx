@@ -6,8 +6,6 @@ import { AuthContext } from '../AuthProvider/AuthProvider';
 const AddAToy = () => {
     const { register, handleSubmit, formState: { errors }, reset } = useForm();
     const { user } = useContext(AuthContext);
-    console.log(user?.displayName);
-
     const onSubmit = data => {
         fetch("http://localhost:3000/allToys", {
             method: "POST",
@@ -25,9 +23,6 @@ const AddAToy = () => {
                     })
                 }
             });
-        console.log(data);
-
-
     };
 
     return (

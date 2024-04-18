@@ -4,7 +4,6 @@ import ToysTable from '../ToysTable/ToysTable';
 
 const AllToys = () => {
     const allToys = useLoaderData();
-    console.log(allToys);
     return (
         <div>
             <div className='h-52 place-content-center'>
@@ -17,25 +16,23 @@ const AllToys = () => {
                         <tr>
                             <th></th>
                             <td> Toy Name</td>
-                            <td>Sub-Catagory</td>
+                            <td>Sub-Category</td>
                             <td>Price</td>
                             <td>Seller Name</td>
                             <td>Available Quantity</td>
                             <td> View Details</td>
                         </tr>
                     </thead>
-                   
-                    {
-                        <tbody>
-                            {
-                                allToys.map((toyTable, index) => <ToysTable
-                                    key={index}
-                                    index={index}
-                                    toyTable={toyTable}>
-                                </ToysTable>)
-                            }
-                        </tbody>
-                    }
+                    <tbody>
+                        {
+                            allToys.map((toyTable, index) => <ToysTable
+                                key={index}
+                                index={index}
+                                toyTable={toyTable}>
+                            </ToysTable>)
+                        }
+                    </tbody>
+
                 </table>
             </div>
         </div>

@@ -6,9 +6,11 @@ const PrivateAuthProvider = ({ children }) => {
     const { user, loading } = useContext(AuthContext);
     const location = useLocation();
     if (loading) {
-        return <div className=' mx-auto h-96 flex justify-center'>
-            <div className="loading loading-bars loading-lg"></div>
-        </div>
+        return <>
+            <div className=' mx-auto h-96 flex justify-center'>
+                <div className="loading loading-bars loading-lg"></div>
+            </div>
+        </>
     }
 
     if (user) {
