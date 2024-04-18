@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../AuthProvider/AuthProvider';
 import MyToysRowData from '../MyToysRowData/MyToysRowData';
+import Swal from 'sweetalert2';
 
 const MyToys = () => {
     const { user } = useContext(AuthContext);
@@ -11,6 +12,44 @@ const MyToys = () => {
             .then(res => res.json())
             .then(data => setMyToys(data))
     }, [url])
+
+    const handleDelete = (_id) => {
+        Swal.fire({
+            title: 'Are you sure?',
+            text: 'You will not be able to recover this toy!',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonText: 'Yes, delete it!',
+            cancelButtonText: 'Cancel',
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+        }).then((result) => {
+            if (result.isConfirmed) {
+                fetch(`http://localhost:3000/allToys/${_id}`, {
+                    method: 'DELETE',
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        console.log(data);
+                        if (data.deletedCount === 1) {
+                            Swal.fire({
+                                title: 'Deleted!',
+                                text: 'Your toy has been deleted.',
+                                icon: 'success',
+                            });
+                            const remaining = myToys.filter(myToy => myToy._id !== _id);
+                            setMyToys(remaining);
+                        } else {
+                            Swal.fire({
+                                title: 'Error!',
+                                text: 'Failed to delete the toy.',
+                                icon: 'error',
+                            });
+                        }
+                    })
+            }
+        });
+    };
 
     return (
         <div>
@@ -33,7 +72,8 @@ const MyToys = () => {
                             myToys.map((myToy, index) => <MyToysRowData
                                 key={index}
                                 index={index}
-                                myToy={myToy}>
+                                myToy={myToy}
+                                handleDelete={handleDelete}>
                             </MyToysRowData>)
                         }
                     </tbody>

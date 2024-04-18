@@ -1,8 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const MyToysRowData = ({ myToy, index }) => {
+const MyToysRowData = ({ myToy, index, handleDelete }) => {
     const { description, photo_url, toy_name, subcategory, price, rating, quantity, seller_email, seller_name, _id } = myToy;
+
+
+
     return (
         <>
             <tr className="hover">
@@ -34,7 +37,7 @@ const MyToysRowData = ({ myToy, index }) => {
                 <td>
                     <Link to={`/alltoys/${_id}`}> <button className='btn btn-success btn-outline font-bold ease-in-out  duration-500 m-2'>UpDate Toy</button> </Link>
 
-                    <Link to={`/alltoys/${_id}`}> <button className='btn btn-error  btn-outline font-bold ease-in-out  duration-500 m-2'>Delete Toy</button> </Link>
+                    <button onClick={() => handleDelete(_id)} className='btn btn-error  btn-outline font-bold ease-in-out  duration-500 m-2'>Delete Toy</button>
                 </td>
             </tr>
         </>
