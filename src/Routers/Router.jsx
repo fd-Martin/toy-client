@@ -1,6 +1,5 @@
 import { createBrowserRouter } from "react-router-dom";
 import Main from "../Pages/Main/Main";
-
 import Blog from "../Pages/Blog/Blog";
 import Error from "../Error/Error";
 import Home from "../Pages/Home/Home/Home";
@@ -11,6 +10,7 @@ import PrivateAuthProvider from "../Pages/PrivateAuthProvider/PrivateAuthProvide
 import AllToys from "../Pages/AllToys/AllToys";
 import MyToys from "../Pages/MyToys/MyToys";
 import SingleToy from "../Pages/SingleToy/SingleToy";
+import UpdateToy from "../Pages/UpdateToy/UpdateToy";
 
 
 
@@ -51,9 +51,16 @@ const router = createBrowserRouter([
         element: <PrivateAuthProvider><MyToys></MyToys></PrivateAuthProvider>
       },
       {
+        path: '/updateToy/:_id',
+        element: <PrivateAuthProvider><UpdateToy /> </PrivateAuthProvider>,
+        loader: ({ params }) => fetch(`http://localhost:3000/allToys/${params._id}`)
+
+      },
+      {
         path: "/addAtoy",
         element: <PrivateAuthProvider><AddAToy></AddAToy></PrivateAuthProvider>
       },
+
     ],
   },
 ]);

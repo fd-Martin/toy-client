@@ -3,7 +3,7 @@ import { useLoaderData } from 'react-router-dom';
 
 const SingleToy = () => {
     const singleToyData = useLoaderData();
-    console.log(singleToyData);
+
     const { description, photo_url, price, quantity, rating, seller_email, seller_name, toy_name, _id } = singleToyData;
     return (
         <div>

@@ -35,7 +35,7 @@ const MyToysRowData = ({ myToy, index, handleDelete }) => {
                 </td>
                 <td>{quantity}</td>
                 <td>
-                    <Link to={`/alltoys/${_id}`}> <button className='btn btn-success btn-outline font-bold ease-in-out  duration-500 m-2'>UpDate Toy</button> </Link>
+                    <Link to={`/updateToy/${_id}`}> <button className='btn btn-success btn-outline font-bold ease-in-out  duration-500 m-2'>UpDate Toy</button> </Link>
 
                     <button onClick={() => handleDelete(_id)} className='btn btn-error  btn-outline font-bold ease-in-out  duration-500 m-2'>Delete Toy</button>
                 </td>
