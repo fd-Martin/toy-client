@@ -4,8 +4,6 @@ import { Link } from 'react-router-dom';
 const MyToysRowData = ({ myToy, index, handleDelete }) => {
     const { description, photo_url, toy_name, subcategory, price, rating, quantity, seller_email, seller_name, _id } = myToy;
 
-
-
     return (
         <>
             <tr className="hover">

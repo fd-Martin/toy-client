@@ -72,7 +72,7 @@ const UpdateToy = () => {
                                     <label className="label">
                                         <span className="label-text font-semibold"> Seller Name</span>
                                     </label>
-                                    {/* <input type="text" placeholder="Seller Name" className="input input-bordered"  {...register("seller_name", { value: user.displayName })} required /> */}
+
                                     <input type="text" placeholder="Seller Name" className="input input-bordered" {...register("seller_name", { value: user.displayName, readOnly: true })} readOnly />
                                 </div>
                                 <div className="form-control">
@@ -80,7 +80,6 @@ const UpdateToy = () => {
                                         <span className="label-text font-semibold"> Seller Email</span>
                                     </label>
 
-                                    {/* <input type="email" placeholder="Seller Email" className="input input-bordered" {...register("seller_email", { value: user.email })} required /> */}
                                     <input type="email" placeholder="Seller Email" className="input input-bordered" {...register("seller_email", { value: user.email, readOnly: true })} readOnly />
                                 </div>
 

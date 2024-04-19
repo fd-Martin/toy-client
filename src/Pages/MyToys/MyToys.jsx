@@ -67,7 +67,9 @@ const MyToys = () => {
                             <td>Update/Delete Action</td>
                         </tr>
                     </thead>
+                    
                     <tbody>
+
                         {
                             myToys.map((myToy, index) => <MyToysRowData
                                 key={index}

@@ -8,7 +8,7 @@ const PrivateAuthProvider = ({ children }) => {
     if (loading) {
         return <>
             <div className=' mx-auto h-96 flex justify-center'>
-                <div className="loading loading-bars loading-lg"></div>
+            <span className="loading loading-dots loading-lg"></span>
             </div>
         </>
     }
