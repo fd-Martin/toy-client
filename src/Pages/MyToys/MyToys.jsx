@@ -53,10 +53,10 @@ const MyToys = () => {
 
     return (
         <div>
-            <div className="overflow-x-auto md:px-20 py-12">
+            <div className="overflow-x-auto md:px-20 py-12 ">
                 <table className=" table  table-pin-rows table-pin-cols text-center">
                     {/* head */}
-                    <thead>
+                    <thead className='text-black'>
                         <tr>
                             <td>Serial No.</td>
                             <td> Toy Name & Sub-Category </td>

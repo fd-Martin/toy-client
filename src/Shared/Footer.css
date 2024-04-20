@@ -8,5 +8,5 @@
 .twitter-icon-container:hover,
 .youtube-icon-container:hover {
     transform: scale(1.5);
-    color:white;
+    color:rgb(0, 0, 0);
 }

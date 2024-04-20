@@ -41,9 +41,9 @@ const Footer = () => {
 
                 <nav className="md:place-self-center md:justify-self-end">
                     <div className="grid grid-flow-col gap-4 text-lg">
-                        <Link to="/"><FaFacebookSquare className="facebook-icon-container text-white " /></Link>
-                        <Link to="/"><FaSquareXTwitter className="twitter-icon-container text-white " /></Link>
-                        <Link to="/"><FaYoutube className="youtube-icon-container text-white " /></Link>
+                        <Link to="/"><FaFacebookSquare className="facebook-icon-container text-black " /></Link>
+                        <Link to="/"><FaSquareXTwitter className="twitter-icon-container text-black " /></Link>
+                        <Link to="/"><FaYoutube className="youtube-icon-container text-black " /></Link>
 
                     </div>
                 </nav>
