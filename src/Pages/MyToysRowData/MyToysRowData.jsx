@@ -34,9 +34,9 @@ const MyToysRowData = ({ myToy, index, handleDelete }) => {
                 <td>{quantity}</td>
                 <td>
                     <Link to={`/updateToy/${_id}`}>
-                        <button className='btn btn-outline-success border-2 ease-in-out border-green-700 text-green-700 hover:bg-green-700 hover:text-white transition-colors duration-1000'>Update Toy</button>
+                        <button className='btn btn-outline-success border-2 ease-in-out border-green-700 text-green-700 hover:bg-green-700 hover:text-white transition-colors duration-1000 m-2'>Update Toy</button>
                     </Link>
-                    <button onClick={() => handleDelete(_id)} className='btn btn-outline-warning border-2 ease-in-out border-red-700 text-red-700 hover:bg-red-700 hover:text-white transition-colors duration-1000 ml-4'>Delete Toy</button>
+                    <button onClick={() => handleDelete(_id)} className='btn btn-outline-warning border-2 ease-in-out border-red-700 text-red-700 hover:bg-red-700 hover:text-white transition-colors duration-1000 m-2'>Delete Toy</button>
                 </td>
 
             </tr>
