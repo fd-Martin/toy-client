@@ -8,14 +8,19 @@ const MyToys = () => {
     const { user } = useContext(AuthContext);
     const [myToys, setMyToys] = useState([]);
     const [ascending, setAscending] = useState(true);
+    const [loading, setLoading] = useState(true);
 
     useTitle('My Toys');
 
     useEffect(() => {
         const url = `http://localhost:3000/allToys?email=${user?.email}&sort=${ascending ? 'ascending' : 'descending'}`;
+        setLoading(true);
         fetch(url)
             .then(res => res.json())
-            .then(data => setMyToys(data));
+            .then(data => {
+                setMyToys(data);
+                setLoading(false); // Set loading to false when data is fetched
+            })
     }, [user, ascending]);
 
     const handleDelete = (_id) => {
@@ -63,7 +68,6 @@ const MyToys = () => {
                 <div className="hero-content text-center text-neutral-content">
                     <div className="max-w-md">
                         <h1 className="mb-5 text-5xl font-bold">My Toys</h1>
-
                         <div className='flex justify-center items-center mb-4'>
                             <h2 className='font-bold mr-2'>Display Data By Price :</h2>
                             <button onClick={() => setAscending(!ascending)} className='btn btn-outline-info border-2 ease-in-out border-white text-white bg-transparent hover:bg-transparent 0  hover:border-blue-700 transition-colors duration-1000'> {ascending ? 'High to Low' : ' Low to High'}</button>
@@ -72,33 +76,37 @@ const MyToys = () => {
                 </div>
             </div>
 
-
-
-            <div className="overflow-x-auto md:px-20 py-12">
-                <table className="table table-pin-rows table-pin-cols text-center">
-                    <thead className='text-black'>
-                        <tr>
-                            <td>Serial No.</td>
-                            <td>Toy Name & Sub-Category</td>
-                            <td>Price</td>
-                            <td>Rating</td>
-                            <td>Seller Name & Email</td>
-                            <td>Available Quantity</td>
-                            <td>Update/Delete Action</td>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {myToys.map((myToy, index) => (
-                            <MyToysRowData
-                                key={index}
-                                index={index}
-                                myToy={myToy}
-                                handleDelete={handleDelete}
-                            />
-                        ))}
-                    </tbody>
-                </table>
-            </div>
+            {loading ? ( 
+                <div className="flex justify-center items-center h-screen">
+                    <span className="loading loading-ring loading-lg"></span>
+                </div>
+            ) : (
+                <div className="overflow-x-auto md:px-20 py-12">
+                    <table className="table table-pin-rows table-pin-cols text-center">
+                        <thead className='text-black'>
+                            <tr>
+                                <td>Serial No.</td>
+                                <td>Toy Name & Sub-Category</td>
+                                <td>Price</td>
+                                <td>Rating</td>
+                                <td>Seller Name & Email</td>
+                                <td>Available Quantity</td>
+                                <td>Update/Delete Action</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {myToys.map((myToy, index) => (
+                                <MyToysRowData
+                                    key={index}
+                                    index={index}
+                                    myToy={myToy}
+                                    handleDelete={handleDelete}
+                                />
+                            ))}
+                        </tbody>
+                    </table>
+                </div>
+            )}
         </div>
     );
 };

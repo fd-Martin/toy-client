@@ -40,6 +40,7 @@ const AddAToy = () => {
                 </div>
             </div>
                     <div className="card shrink-0 w-full shadow-2xl bg-base-100  px-4 md:px-20 lg:px-36">
+                        
                         <form className="card-body border-1 border-black" onSubmit={handleSubmit(onSubmit)} >
                             <div className='grid grid-cols-1 md:grid-cols-2  gap-4'>
                                 <div className="form-control">
