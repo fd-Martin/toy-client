@@ -6,7 +6,7 @@ const ToysTable = ({ toyTable, index }) => {
     return (
         <>
             <tr className="hover text-center">
-                <th>{index + 1}</th>
+                <td>{index + 1}</td>
                 <td>{toy_name}</td>
                 <td>{subcategory}</td>
                 <td>{price}</td>

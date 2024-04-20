@@ -77,7 +77,7 @@ const MyToys = () => {
             </div>
 
             {loading ? ( 
-                <div className="flex justify-center items-center h-screen">
+                <div className="flex justify-center items-center h-32">
                     <span className="loading loading-ring loading-lg"></span>
                 </div>
             ) : (

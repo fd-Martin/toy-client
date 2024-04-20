@@ -51,7 +51,7 @@ const AllToys = () => {
                         <table className=" table  table-pin-rows table-pin-cols">
                             <thead className='text-black text-center'>
                                 <tr>
-                                    <th>Serial Np.</th>
+                                    <td>Serial Np.</td>
                                     <td> Toy Name</td>
                                     <td>Sub-Category</td>
                                     <td>Price</td>
@@ -75,8 +75,8 @@ const AllToys = () => {
 
                     </div>
                 </div> : (
-                    <div className="flex justify-center items-center h-screen">
-                        <span className="loading loading-ring loading-lg"></span>
+                    <div className="flex justify-center items-center h-40">
+                        <span className="loading loading-bars loading-lg"></span>
                     </div>
                 )}
 
