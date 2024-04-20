@@ -2,11 +2,13 @@ import React, { useContext, useState } from 'react';
 import { Link, Navigate, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../AuthProvider/AuthProvider';
 import { updateProfile } from 'firebase/auth';
+import useTitle from '../../Hooks/useTitle';
 
 const Register = () => {
     const { user, createUser } = useContext(AuthContext);
     const [error, setError] = useState(null);
     const navigateToLoginPage = useNavigate();
+    useTitle('Register')
     const handleRegister = (event) => {
         event.preventDefault();
         const form = event.target;

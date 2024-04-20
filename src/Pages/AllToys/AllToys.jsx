@@ -1,20 +1,22 @@
 import React from 'react';
 import { useLoaderData } from 'react-router-dom';
 import ToysTable from '../ToysTable/ToysTable';
+import useTitle from '../../Hooks/useTitle';
 
 const AllToys = () => {
+    useTitle('All Toys');
     const allToys = useLoaderData();
+
     return (
         <div>
             <div className='h-52 place-content-center'>
-
                 <h1 className='text-center font-extrabold text-3xl'> All Toys</h1>
             </div>
             <div className="overflow-x-auto md:px-20">
                 <table className=" table  table-pin-rows table-pin-cols">
-                    <thead>
+                    <thead className='text-black text-center'>
                         <tr>
-                            <th></th>
+                            <th>Serial Np.</th>
                             <td> Toy Name</td>
                             <td>Sub-Category</td>
                             <td>Price</td>

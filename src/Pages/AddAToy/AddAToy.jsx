@@ -2,10 +2,12 @@ import React, { useContext } from 'react';
 import { useForm } from 'react-hook-form';
 import Swal from 'sweetalert2'
 import { AuthContext } from '../AuthProvider/AuthProvider';
+import useTitle from '../../Hooks/useTitle';
 
 const AddAToy = () => {
     const { register, handleSubmit, formState: { errors }, reset } = useForm();
     const { user } = useContext(AuthContext);
+    useTitle('Add A Toy')
     const onSubmit = data => {
         fetch("http://localhost:3000/allToys", {
             method: "POST",

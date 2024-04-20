@@ -1,6 +1,8 @@
 import React from 'react';
+import useTitle from '../../Hooks/useTitle';
 
 const Blog = ({ children }) => {
+    useTitle('Blog')
     return (
         <div className=" flex items-center justify-center">
             <div className="container mx-auto py-8 px-6">

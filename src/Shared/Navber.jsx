@@ -66,7 +66,13 @@ const Navbar = () => {
                                         ? "pending"
                                         : ""}>Blog</NavLink>
                             </li>
-                            <li><Link to='/allToys'>All Toys</Link></li>
+                            <li><NavLink to='allToys' className={({ isActive, isPending }) =>
+                                isActive
+                                    ? "active"
+                                    : isPending
+                                        ? "pending"
+                                        : ""}>All Toys</NavLink>
+                            </li>
                             {
                                 user ?  
                                 <>

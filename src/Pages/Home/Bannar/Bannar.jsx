@@ -60,7 +60,7 @@ const Banner = () => {
                 {slidesContent.map((_, index) => (
                     <button
                         key={index}
-                        className={`btn btn-xs ${currentSlide === index ? 'bg-gray-800' : ''}`}
+                        className={`btn btn-xs ${currentSlide === index ? 'bg-black text-white' : ''}`}
                         onClick={() => goToSlide(index)}
                     >
                         {index + 1}

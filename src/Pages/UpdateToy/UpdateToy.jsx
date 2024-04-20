@@ -3,6 +3,7 @@ import { useForm } from 'react-hook-form';
 import Swal from 'sweetalert2'
 import { AuthContext } from '../AuthProvider/AuthProvider';
 import { useLoaderData, useNavigate } from 'react-router-dom';
+import useTitle from '../../Hooks/useTitle';
 
 const UpdateToy = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
@@ -10,6 +11,7 @@ const UpdateToy = () => {
     const currentData = useLoaderData();
     const navigate = useNavigate();
     const { description, photo_url, price, quantity, rating, seller_email, seller_name, toy_name, _id, subcategory } = currentData;
+    useTitle('Update Toy')
 
 
     const onSubmit = data => {

@@ -2,6 +2,7 @@ import React, { useContext, useState } from 'react';
 import { AuthContext } from '../AuthProvider/AuthProvider';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { FaGoogle } from 'react-icons/fa';
+import useTitle from '../../Hooks/useTitle';
 
 const Login = () => {
     const { user, googleSignIn, signIn } = useContext(AuthContext);
@@ -9,6 +10,7 @@ const Login = () => {
     const navigate = useNavigate();
     const location = useLocation();
     const from = location.state?.from?.pathname || '/';
+    useTitle('Login')
 
     const handleLogin = (event) => {
         event.preventDefault();
@@ -55,7 +57,7 @@ const Login = () => {
                                 </label>
                                 <input type="password" placeholder="password" name="password" className="input input-bordered" required />
 
-                                <p>Don't have any account?Please <Link to='/register' className=" link link-hover text-primary">Register</Link> </p>
+                                <p>Don't have any account?Please <Link to='/signup' className=" link link-hover text-primary">Register</Link> </p>
                                 <p className='text-error'>{error}</p>
                             </div>
                             <div className="form-control mt-6">

@@ -2,16 +2,21 @@ import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../AuthProvider/AuthProvider';
 import MyToysRowData from '../MyToysRowData/MyToysRowData';
 import Swal from 'sweetalert2';
+import useTitle from '../../Hooks/useTitle';
 
 const MyToys = () => {
     const { user } = useContext(AuthContext);
     const [myToys, setMyToys] = useState([]);
-    const url = `http://localhost:3000/allToys?email=${user?.email}`;
+    const [ascending, setAscending] = useState(true);
+
+    useTitle('My Toys');
+
     useEffect(() => {
+        const url = `http://localhost:3000/allToys?email=${user?.email}&sort=${ascending ? 'ascending' : 'descending'}`;
         fetch(url)
             .then(res => res.json())
-            .then(data => setMyToys(data))
-    }, [url])
+            .then(data => setMyToys(data));
+    }, [user, ascending]);
 
     const handleDelete = (_id) => {
         Swal.fire({
@@ -46,40 +51,52 @@ const MyToys = () => {
                                 icon: 'error',
                             });
                         }
-                    })
+                    });
             }
         });
     };
 
     return (
         <div>
-            <div className="overflow-x-auto md:px-20 py-12 ">
-                <table className=" table  table-pin-rows table-pin-cols text-center">
-                    {/* head */}
+            <div className="hero min-h-72" style={{ backgroundImage: 'url(https://images.unsplash.com/photo-1578652520385-c05f6f3b5de3?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)' }}>
+                <div className="hero-overlay bg-opacity-60"></div>
+                <div className="hero-content text-center text-neutral-content">
+                    <div className="max-w-md">
+                        <h1 className="mb-5 text-5xl font-bold">My Toys</h1>
+
+                        <div className='flex justify-center items-center mb-4'>
+                            <h2 className='font-bold mr-2'>Display Data By Price :</h2>
+                            <button onClick={() => setAscending(!ascending)} className='btn btn-outline-info border-2 ease-in-out border-white text-white bg-transparent hover:bg-transparent 0  hover:border-blue-700 transition-colors duration-1000'> {ascending ? 'High to Low' : ' Low to High'}</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div className="overflow-x-auto md:px-20 py-12">
+                <table className="table table-pin-rows table-pin-cols text-center">
                     <thead className='text-black'>
                         <tr>
                             <td>Serial No.</td>
-                            <td> Toy Name & Sub-Category </td>
+                            <td>Toy Name & Sub-Category</td>
                             <td>Price</td>
                             <td>Rating</td>
-                            <td> Seller Name & Email</td>
+                            <td>Seller Name & Email</td>
                             <td>Available Quantity</td>
                             <td>Update/Delete Action</td>
                         </tr>
                     </thead>
-                    
                     <tbody>
-
-                        {
-                            myToys.map((myToy, index) => <MyToysRowData
+                        {myToys.map((myToy, index) => (
+                            <MyToysRowData
                                 key={index}
                                 index={index}
                                 myToy={myToy}
-                                handleDelete={handleDelete}>
-                            </MyToysRowData>)
-                        }
+                                handleDelete={handleDelete}
+                            />
+                        ))}
                     </tbody>
-
                 </table>
             </div>
         </div>
