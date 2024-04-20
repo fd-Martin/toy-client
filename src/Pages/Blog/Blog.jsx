@@ -5,7 +5,7 @@ const Blog = ({ children }) => {
         <div className=" flex items-center justify-center">
             <div className="container mx-auto py-8 px-6">
                 <h1 className="text-7xl font-bold text-center mb-6"> {children}</h1>
-                <div className="accordion ml-6">
+                <div className="accordion ml-6 text-justify">
 
                     <div className="accordion-item">
                         <div className="accordion-title">
