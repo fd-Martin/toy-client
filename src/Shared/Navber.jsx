@@ -61,7 +61,7 @@ const Navbar = () => {
                             <Link to='/'> <img className=' min-w-28   ' src={recipe} /></Link>
                         </div>
                         <div>
-                           
+
                         </div>
                     </div>
                 </div>
@@ -91,8 +91,20 @@ const Navbar = () => {
                         {
                             user ?
                                 <>
-                                    <li><Link to='/myToys'>My Toys</Link></li>
-                                    <li><Link to='/addAtoy'>Add A Toy</Link></li>
+                                    <li><NavLink to='/myToys' className={({ isActive, isPending }) =>
+                                        isActive
+                                            ? "active"
+                                            : isPending
+                                                ? "pending"
+                                                : ""}>My Toys</NavLink>
+                                    </li>
+                                    <li><NavLink to='/addAtoy' className={({ isActive, isPending }) =>
+                                        isActive
+                                            ? "active"
+                                            : isPending
+                                                ? "pending"
+                                                : ""}>Add A Toy</NavLink>
+                                    </li>
                                 </> : ''
 
                         }

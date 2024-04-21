@@ -1,12 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const ToysTable = ({ toyTable, index }) => {
+const ToysTable = ({ toyTable, index, currentPage, toysPerPage }) => {
     const { toy_name, seller_name, price, quantity, subcategory, _id } = toyTable;
+    const serialNumber = (currentPage * toysPerPage) + (index + 1);
     return (
         <>
             <tr className="hover text-center">
-                <td>{index + 1}</td>
+                <td>{serialNumber}</td>
                 <td>{toy_name}</td>
                 <td>{subcategory}</td>
                 <td>{price}</td>

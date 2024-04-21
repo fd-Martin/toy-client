@@ -1,19 +1,33 @@
 import React, { useEffect, useRef, useState } from 'react';
 import ToysTable from '../ToysTable/ToysTable';
 import useTitle from '../../Hooks/useTitle';
+import { useLoaderData } from 'react-router-dom';
 
 const AllToys = () => {
 
     const [allToys, setAllToys] = useState();
     const [search, setSearch] = useState('');
+    const totalToys = useLoaderData();
+    const [currentPage, setCurrentPage] = useState(0);
+    const [toysPerPage, setToysPerPage] = useState(10);
+    const options = [5, 10, 15, 20];
+    const totalPages = Math.ceil(totalToys.totalToysNum / toysPerPage);
+    const pageNumbers = [...Array(totalPages).keys()];
+
+    const handleSelectedChange = event => {
+        setToysPerPage(parseInt(event.target.value));
+        setCurrentPage(0);
+    }
     useEffect(() => {
-        fetch(`http://localhost:3000/allToys?search=${search}`)
+        fetch(`http://localhost:3000/allToys?search=${search}&page=${currentPage}&limit=${toysPerPage}`)
             .then(res => res.json())
             .then(data => setAllToys(data))
-    }, [search])
+    }, [search, currentPage, toysPerPage])
+
     useTitle('All Toys');
 
     const searchToy = useRef(null);
+
     const handleSearch = () => {
         console.log(searchToy.current.value);
         setSearch(searchToy.current.value)
@@ -21,6 +35,7 @@ const AllToys = () => {
 
     return (
         <div>
+
             <div className="hero min-h-72" style={{ backgroundImage: 'url(https://images.unsplash.com/photo-1511415518647-9e5da4fd803f?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)' }}>
                 <div className="hero-overlay bg-opacity-60"></div>
                 <div className="hero-content text-center text-neutral-content">
@@ -31,6 +46,18 @@ const AllToys = () => {
             </div>
             {
                 allToys ? <div className="overflow-x-auto md:px-20 mt-8">
+                    <div>
+                        {
+                            pageNumbers.map(number =>
+                                <button className={`join-item btn mx-1 ${currentPage === number ? 'btn-active' : ''}`} key={number} onClick={() => setCurrentPage(number)}>{number}</button>
+                            )
+                        }
+                        <select value={toysPerPage} onChange={handleSelectedChange}>
+                            {options.map(option => (
+                                <option key={option} value={option}>{option}</option>
+                            ))}
+                        </select>
+                    </div>
                     <div className='flex items-center justify-end'>
 
                         <div>
@@ -39,11 +66,11 @@ const AllToys = () => {
                         <div className="join ml-2">
                             <div>
                                 <div>
-                                    <input className="input input-bordered join-item border-black" ref={searchToy} placeholder="Toy Name" />
+                                    <input className="input input-bordered join-item " ref={searchToy} placeholder="Toy Name" />
                                 </div>
                             </div>
                             <div className="indicator">
-                                <button className="btn join-item border-1 border-black" onClick={handleSearch}>Search</button>
+                                <button className="btn join-item  border-black" onClick={handleSearch}>Search</button>
                             </div>
                         </div>
                     </div>
@@ -64,6 +91,8 @@ const AllToys = () => {
                                 {allToys.map((toyTable, index) => (
                                     <ToysTable
                                         key={index}
+                                        currentPage={currentPage}
+                                        toysPerPage={toysPerPage}
                                         index={index}
                                         toyTable={toyTable}
                                     />

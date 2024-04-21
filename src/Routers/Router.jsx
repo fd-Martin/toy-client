@@ -33,13 +33,13 @@ const router = createBrowserRouter([
         element: <Login></Login>
       },
       {
-        path: "/signup",
+        path: "/signup", 
         element: <Register></Register>
       },
       {
         path: "/alltoys",
         element: <AllToys></AllToys>,
-        // loader: () => fetch(`http://localhost:3000/allToys`)
+        loader: () => fetch(`http://localhost:3000/totalToys`)
       },
       {
         path: "/alltoys/:_id",
