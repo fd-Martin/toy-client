@@ -1,11 +1,10 @@
 import React from 'react';
 import Bannar from '../Bannar/Bannar';
-
 import ShopByCatagory from '../ShopByCatagory/ShopByCatagory';
-import ExtraSection2 from '../ExtraSection2/ExtraSection2';
 import Gallery from '../Gallery/Gallery';
 import useTitle from '../../../Hooks/useTitle';
 import MarqueeSection from '../MarqueeSection/MarqueeSection';
+import Benefits from '../Benefits/Benefits';
 
 const Home = () => {
     useTitle('Home')
@@ -14,8 +13,8 @@ const Home = () => {
             <Bannar></Bannar>
             <Gallery></Gallery>
             <ShopByCatagory></ShopByCatagory>
+            <Benefits></Benefits>
             <MarqueeSection></MarqueeSection>
-            <ExtraSection2></ExtraSection2>
         </div>
     );
 };
