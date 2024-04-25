@@ -43,7 +43,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/alltoys/:_id",
-        element: <SingleToy></SingleToy>,
+        element: <PrivateAuthProvider> <SingleToy></SingleToy></PrivateAuthProvider> ,
         loader: ({ params }) => fetch(`http://localhost:3000/allToys/${params._id}`)
       },
       {

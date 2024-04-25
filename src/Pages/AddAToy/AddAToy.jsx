@@ -31,16 +31,16 @@ const AddAToy = () => {
         <div className='bg-base-200'>
             <div className=" place-content-center ">
                 <div className="flex-col">
-                <div className="hero min-h-72" style={{ backgroundImage: 'url(https://images.unsplash.com/photo-1511415518647-9e5da4fd803f?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)' }}>
-                <div className="hero-overlay bg-opacity-60"></div>
-                <div className="hero-content text-center text-neutral-content">
-                    <div className="max-w-md">
-                        <h1 className="mb-5 text-5xl font-bold">Add A Toy</h1>
+                    <div className="hero min-h-72" style={{ backgroundImage: 'url(https://images.unsplash.com/photo-1511415518647-9e5da4fd803f?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)' }}>
+                        <div className="hero-overlay bg-opacity-60"></div>
+                        <div className="hero-content text-center text-neutral-content">
+                            <div className="max-w-md">
+                                <h1 className="mb-5 text-5xl font-bold">Add A Toy</h1>
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div>
                     <div className="card shrink-0 w-full shadow-2xl bg-base-100  px-4 md:px-20 lg:px-36">
-                        
+
                         <form className="card-body border-1 border-black" onSubmit={handleSubmit(onSubmit)} >
                             <div className='grid grid-cols-1 md:grid-cols-2  gap-4'>
                                 <div className="form-control">
@@ -60,9 +60,11 @@ const AddAToy = () => {
                                         <span className="label-text font-semibold"> Sub-Category</span>
                                     </label>
                                     <select {...register("subcategory")} className="input input-bordered">
-                                        <option value="a">a</option>
-                                        <option value="b">b</option>
-                                        <option value="c">c</option>
+                                        <option value="Truck">Truck</option>
+                                        <option value="Sports Car">Sports Car</option>
+                                        <option value="Regular Car">Regular Car</option>
+                                        <option value="Mini Fire Truck">Mini Fire Truck</option>
+                                        <option value="Mini Police Car">Mini Police Car</option>
                                     </select>
                                 </div>
 

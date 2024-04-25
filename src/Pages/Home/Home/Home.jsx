@@ -6,13 +6,14 @@ import useTitle from '../../../Hooks/useTitle';
 import MarqueeSection from '../MarqueeSection/MarqueeSection';
 import Benefits from '../Benefits/Benefits';
 
+
 const Home = () => {
     useTitle('Home')
     return (
         <div>
             <Bannar></Bannar>
             <Gallery></Gallery>
-            {/* <ShopByCatagory></ShopByCatagory> */}
+            <ShopByCatagory></ShopByCatagory>
             <Benefits></Benefits>
             <MarqueeSection></MarqueeSection>
         </div>
