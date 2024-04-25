@@ -5,7 +5,7 @@ import { TbTruckDelivery } from "react-icons/tb";
 const Benefits = () => {
     return (
         <div className='grid grid-cols-1 md:grid-cols-2'>
-            <div className='border border-2 m-1  md:m-4 flex items-center'>
+            <div className='border border-2 mx-4 my-2  md:mx-4 md:my-4 flex items-center'>
                 <div className='text-4xl p-5'>
                     <FaRegMoneyBillAlt />
                 </div>
@@ -14,7 +14,7 @@ const Benefits = () => {
                     <p className='text-gray-600'>Back Guarantee Under 7 Days</p>
                 </div>
             </div>
-            <div className='border border-2 m-1  md:m-4 flex items-center'>
+            <div className='border border-2 mx-4 my-2  md:m-4 flex items-center'>
                 <div className='text-4xl p-5'>
                 <FaRegUser />
                 </div>
@@ -23,7 +23,7 @@ const Benefits = () => {
                     <p className='text-gray-600'>On every order over $2000</p>
                 </div>
             </div>
-            <div className='border border-2 m-1  md:m-4 flex items-center'>
+            <div className='border border-2 mx-4 my-2  md:m-4 flex items-center'>
                 <div className='text-4xl p-5'>
                 <TbTruckDelivery />
                 </div>
@@ -32,7 +32,7 @@ const Benefits = () => {
                     <p className='text-gray-600'>Free delivery to your home</p>
                 </div>
             </div>
-            <div className='border border-2 m-1  md:m-4 flex items-center'>
+            <div className='border border-2 mx-4 my-2  md:m-4 flex items-center'>
                 <div className='text-4xl p-5'>
                 <IoMdTime />
                 </div>

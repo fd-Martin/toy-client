@@ -12,7 +12,7 @@ import { ImFire } from "react-icons/im";
 
 const MarqueeSection = () => {
     return (
-        <>
+        <div className='py-2'>
             <Marquee className='bg-emerald-400' speed={120} pauseOnHover={true} gradient gradientWidth={50} gradientColor='white'>
                 <div className=' h-12 flex items-center text-white mx-4'>
                     <ImFire /> <p className='mx-4 font-bold '>Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit quisquam deleniti explicabo.</p>
@@ -27,7 +27,7 @@ const MarqueeSection = () => {
                     <ImFire /> <p className='mx-4 font-bold '>Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit quisquam deleniti explicabo.</p>
                 </div>
             </Marquee>
-            
+
             <Marquee pauseOnHover={true} gradient gradientWidth={100} gradientColor='white' >
                 <div className='flex justify-around py-8'>
                     <div className='px-10'>
@@ -53,7 +53,7 @@ const MarqueeSection = () => {
                     </div>
                 </div>
             </Marquee>
-        </>
+        </div>
     );
 };
 
