@@ -39,12 +39,12 @@ const router = createBrowserRouter([
       {
         path: "/alltoys",
         element: <AllToys></AllToys>,
-        loader: () => fetch(`http://localhost:3000/totalToys`)
+        loader: () => fetch(`https://toy-server-green.vercel.app/totalToys`)
       },
       {
         path: "/alltoys/:_id",
         element: <PrivateAuthProvider> <SingleToy></SingleToy></PrivateAuthProvider> ,
-        loader: ({ params }) => fetch(`http://localhost:3000/allToys/${params._id}`)
+        loader: ({ params }) => fetch(`https://toy-server-green.vercel.app/allToys/${params._id}`)
       },
       {
         path: "/myToys",
@@ -53,7 +53,7 @@ const router = createBrowserRouter([
       {
         path: '/updateToy/:_id',
         element: <PrivateAuthProvider><UpdateToy /> </PrivateAuthProvider>,
-        loader: ({ params }) => fetch(`http://localhost:3000/allToys/${params._id}`)
+        loader: ({ params }) => fetch(`https://toy-server-green.vercel.app/allToys/${params._id}`)
 
       },
       {

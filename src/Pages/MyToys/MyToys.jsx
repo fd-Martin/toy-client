@@ -13,13 +13,13 @@ const MyToys = () => {
     useTitle('My Toys');
 
     useEffect(() => {
-        const url = `http://localhost:3000/allToys?email=${user?.email}&sort=${ascending ? 'ascending' : 'descending'}`;
+        const url = `https://toy-server-green.vercel.app/allToys?email=${user?.email}&sort=${ascending ? 'ascending' : 'descending'}`;
         setLoading(true);
         fetch(url)
             .then(res => res.json())
             .then(data => {
                 setMyToys(data);
-                setLoading(false); // Set loading to false when data is fetched
+                setLoading(false);
             })
     }, [user, ascending]);
 
@@ -35,12 +35,11 @@ const MyToys = () => {
             cancelButtonColor: '#d33',
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:3000/allToys/${_id}`, {
+                fetch(`https://toy-server-green.vercel.app/allToys/${_id}`, {
                     method: 'DELETE',
                 })
                     .then(res => res.json())
                     .then(data => {
-                        console.log(data);
                         if (data.deletedCount === 1) {
                             Swal.fire({
                                 title: 'Deleted!',
@@ -70,45 +69,61 @@ const MyToys = () => {
                         <h1 className="mb-5 text-5xl font-bold">My Toys</h1>
                         <div className='flex justify-center items-center mb-4'>
                             <h2 className='font-bold mr-2'>Display Data By Price :</h2>
-                            <button onClick={() => setAscending(!ascending)} className='btn btn-outline-info border-2 ease-in-out border-white text-white bg-transparent hover:bg-transparent 0  hover:border-blue-700 transition-colors duration-1000'> {ascending ? 'High to Low' : ' Low to High'}</button>
+                            <button onClick={() => setAscending(!ascending)} className='btn btn-outline-info border-2 ease-in-out border-white text-white bg-transparent hover:bg-transparent hover:border-blue-700 transition-colors duration-1000'>
+                                {ascending ? 'High to Low' : ' Low to High'}
+                            </button>
                         </div>
                     </div>
                 </div>
             </div>
 
-            {loading ? ( 
-                <div className="flex justify-center items-center h-32">
-                    <span className="loading loading-ring loading-lg"></span>
-                </div>
-            ) : (
-                <div className="overflow-x-auto md:px-20 py-12">
-                    <table className="table table-pin-rows table-pin-cols text-center">
-                        <thead className='text-black'>
-                            <tr>
-                                <td>Serial No.</td>
-                                <td>Toy Name & Sub-Category</td>
-                                <td>Price</td>
-                                <td>Rating</td>
-                                <td>Seller Name & Email</td>
-                                <td>Available Quantity</td>
-                                <td>Update/Delete Action</td>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {myToys.map((myToy, index) => (
-                                <MyToysRowData
-                                    key={index}
-                                    index={index}
-                                    myToy={myToy}
-                                    handleDelete={handleDelete}
-                                />
-                            ))}
-                        </tbody>
-                    </table>
-                </div>
-            )}
+            {loading ?
+                (
+                    <div className="flex justify-center items-center h-32">
+                        <span className="loading loading-ring loading-lg"></span>
+                    </div>
+                )
+                :
+                (
+                    myToys.length === 0 ? (
+                        <div className="text-center py-8">
+                            <div>
+                                <span className='text-4xl'>No toys added yet. Please add some toys to see them here.</span>
+                            </div>
+                        </div>
+                    )
+                    :
+                    (
+                        <div className="overflow-x-auto md:px-10 px-4 py-12">
+                            <table className="table table-pin-rows table-pin-cols text-center w-full">
+                                <thead className='text-black'>
+                                    <tr>
+                                        <td>Serial No.</td>
+                                        <td>Toy Name & Sub-Category</td>
+                                        <td>Price</td>
+                                        <td>Rating</td>
+                                        <td>Seller Name & Email</td>
+                                        <td>Available Quantity</td>
+                                        <td>Update/Delete Action</td>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {myToys.map((myToy, index) => (
+                                        <MyToysRowData
+                                            key={index}
+                                            index={index}
+                                            myToy={myToy}
+                                            handleDelete={handleDelete}
+                                        />
+                                    ))}
+                                </tbody>
+                            </table>
+                        </div>
+                    )
+                )}
         </div>
     );
 };
 
 export default MyToys;
+

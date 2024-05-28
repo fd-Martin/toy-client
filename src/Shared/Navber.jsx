@@ -125,9 +125,7 @@ const Navbar = () => {
                                     <Link to='/login'>
                                         <button className="btn btn-primary text-xl">Login</button>
                                     </Link>
-                                    <Link to='/signup'>
-                                        <button className="btn btn-primary text-xl">Sign Up</button>
-                                    </Link>
+                                    
                                 </div>
                         }
                     </div>

@@ -1,0 +1,9 @@
+/* ShopByCategory.css */
+.react-tabs__tab--selected {
+    background-color: black;
+    color: white;
+}
+.react-tabs__tab--selected:hover {
+    background-color: black;
+    color: white;
+}

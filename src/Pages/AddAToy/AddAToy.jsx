@@ -9,7 +9,7 @@ const AddAToy = () => {
     const { user } = useContext(AuthContext);
     useTitle('Add A Toy')
     const onSubmit = data => {
-        fetch("http://localhost:3000/allToys", {
+        fetch("https://toy-server-green.vercel.app/allToys", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(data),
@@ -23,6 +23,7 @@ const AddAToy = () => {
                         text: "Add More Toys",
                         icon: "success"
                     })
+                    reset();
                 }
             });
     };
@@ -121,3 +122,4 @@ const AddAToy = () => {
 };
 
 export default AddAToy;
+

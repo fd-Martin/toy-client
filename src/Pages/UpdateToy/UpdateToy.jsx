@@ -10,12 +10,12 @@ const UpdateToy = () => {
     const { user } = useContext(AuthContext);
     const currentData = useLoaderData();
     const navigate = useNavigate();
-    const { description, photo_url, price, quantity, rating, seller_email, seller_name, toy_name, _id, subcategory } = currentData;
+    const { description, photo_url, price, quantity, rating, toy_name, _id, subcategory } = currentData;
     useTitle('Update Toy')
 
 
     const onSubmit = data => {
-        fetch(`http://localhost:3000/allToys/${_id}`, {
+        fetch(`https://toy-server-green.vercel.app/allToys/${_id}`, {
             method: "PUT",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(data),

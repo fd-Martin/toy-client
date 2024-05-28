@@ -19,13 +19,12 @@ const Gallery = () => {
     ];
 
     return (
-
         <div>
             <div className='mt-4'>
-                <h1 className='text-center text-2xl md:text-6xl font-bold  '>Toy Gallery</h1>
+                <h1 className='text-center text-2xl md:text-6xl font-bold'>Toy Gallery</h1>
             </div>
-            <div className='p-4  m-6 border-2 border-yellow-500 rounded-xl'>
-                <PhotoAlbum layout="columns" photos={photos}></PhotoAlbum>
+            <div className='p-4 m-6 border-2 border-yellow-500 rounded-xl'>
+                <PhotoAlbum layout="columns" photos={photos} />
             </div>
         </div>
     );
