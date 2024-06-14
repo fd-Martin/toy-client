@@ -17,7 +17,7 @@ const ShopByCategory = () => {
     }
 
     useEffect(() => {
-        fetch('http://localhost:3000/toysBySubcategory')
+        fetch('https://toy-server-green.vercel.app/toysBySubcategory')
             .then(res => res.json())
             .then(data => {
                 setToys(data);

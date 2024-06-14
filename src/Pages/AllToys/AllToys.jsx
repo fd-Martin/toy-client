@@ -21,7 +21,7 @@
 
 //     useEffect(() => {
 //         setLoading(true);
-//         fetch(`http://localhost:3000/allToys?search=${search}&page=${currentPage}&limit=${toysPerPage}`)
+//         fetch(`https://toy-server-green.vercel.app/allToys?search=${search}&page=${currentPage}&limit=${toysPerPage}`)
 //             .then(res => res.json())
 //             .then(data => {
 //                 setAllToys(data);
@@ -179,7 +179,7 @@ const AllToys = () => {
     }
 
     useEffect(() => {
-        fetch(`http://localhost:3000/allToys?search=${search}&page=${currentPage}&limit=${toysPerPage}`)
+        fetch(`https://toy-server-green.vercel.app/allToys?search=${search}&page=${currentPage}&limit=${toysPerPage}`)
             .then(res => res.json())
             .then(data => {
                 setAllToys(data);
