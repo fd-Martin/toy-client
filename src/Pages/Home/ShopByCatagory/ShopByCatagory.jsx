@@ -8,7 +8,6 @@ import Swal from 'sweetalert2';
 
 const ShopByCategory = () => {
     const [toys, setToys] = useState([]);
-    const [loading, setLoading] = useState(true);
     const { user } = useContext(AuthContext);
 
     const handleClick = () => {
@@ -18,25 +17,18 @@ const ShopByCategory = () => {
     }
 
     useEffect(() => {
-        setLoading(true);
-        fetch('https://toy-server-green.vercel.app/toysBySubcategory')
+        fetch('http://localhost:3000/toysBySubcategory')
             .then(res => res.json())
             .then(data => {
                 setToys(data);
-                setLoading(false);
             })
             .catch(err => {
                 console.log(err);
-                setLoading(false);
             });
     }, []);
 
     const renderTable = (subcategory) => (
-        loading ? (
-            <div className="flex justify-center items-center h-32">
-                <span className="loading loading-ring loading-lg"></span>
-            </div>
-        ) : toys.filter(toy => toy.subcategory === subcategory).length === 0 ? (
+        toys.filter(toy => toy.subcategory === subcategory).length === 0 ? (
             <p className='text-center font-semibold py-4 text-2xl md:text-4xl'>No Toy Found</p>
         ) : (
             <table className="table-auto w-full text-sm md:text-base">

@@ -13,7 +13,7 @@ const MyToys = () => {
     useTitle('My Toys');
 
     useEffect(() => {
-        const url = `https://toy-server-green.vercel.app/allToys?email=${user?.email}&sort=${ascending ? 'ascending' : 'descending'}`;
+        const url = `http://localhost:3000/allToys?email=${user?.email}&sort=${ascending ? 'ascending' : 'descending'}`;
         setLoading(true);
         fetch(url)
             .then(res => res.json())
@@ -35,7 +35,7 @@ const MyToys = () => {
             cancelButtonColor: '#d33',
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`https://toy-server-green.vercel.app/allToys/${_id}`, {
+                fetch(`http://localhost:3000/allToys/${_id}`, {
                     method: 'DELETE',
                 })
                     .then(res => res.json())

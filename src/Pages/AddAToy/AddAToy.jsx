@@ -9,7 +9,7 @@ const AddAToy = () => {
     const { user } = useContext(AuthContext);
     useTitle('Add A Toy')
     const onSubmit = data => {
-        fetch("https://toy-server-green.vercel.app/allToys", {
+        fetch("http://localhost:3000/allToys", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(data),
